@@ -1,4 +1,5 @@
 import type { Session } from "next-auth"
+import type { Session as AuthCoreSession } from "@auth/core/types"
 
 // Lista de emails de administradores
 const ADMIN_EMAILS = [
@@ -6,7 +7,7 @@ const ADMIN_EMAILS = [
   // Adicione outros emails de administradores aqui
 ]
 
-export function isAdmin(session: Session | null): boolean {
+export function isAdmin(session: Session | AuthCoreSession | null): boolean {
   if (!session || !session.user || !session.user.email) {
     return false
   }
