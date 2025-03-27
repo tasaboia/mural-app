@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { SessionProvider } from "next-auth/react";
+import { Theme } from "@radix-ui/themes";
 
 import "./globals.css"
 
@@ -23,7 +24,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <SessionProvider>
+        <Theme>
           {children}
+        </Theme>
         </SessionProvider>
       </body>
     </html>
